@@ -1,0 +1,45 @@
+copy/pasta page
+
+Rooms
+Small Clearing		Bear area		small grotto		
+big cavern			rock ledge		subroom1
+subroom2			subroom3		magic room
+
+start
+front yard 
+
+
+
+
+
+							Start
+
+approach bears (bear area)				approach small grotto 	
+	die or have fish		find cave entrance /fish/ swim / find secret entrance
+			|						|___________________________		\__________________________________________________________________
+			|													\																	 	   \
+	play with bear cubs										**big cavern **			 													**subroom3**
+			|													|																			|
+			|							  			___________/|\____________________											___________/ \___________
+approach small grotto)/EXIT				___________/	    	|					  \										   /						 \
+									   /				subroom1, rock ledge    subroom2 far right						subroom2 on left 			approach small grotto)/ EXIT
+						______________/	 						|						|									   |						 
+				small grotto/ EXIT			   ________________/ \____					 \____________________________________/	
+											  /						  |   									|               
+										subroom1				rock ledge								subroom2 
+											|						  |										|
+											|						 / \								   / \
+										big cavern			big cavern   magic room				big cavern	   subroom33
+																			 |
+																			 |
+																		big cavern
+
+
+
+
+fixture > room >
+		> item
+
+
+
+use room manager to select room and options

@@ -2,10 +2,10 @@ package fixtures;
 
 public class Room extends Fixture {
 	
-	
+	// array of adjacent rooms
 	public Room[] exits;
 	
-	
+	public String getName() { return this.name; }
 	
 	
 	public Room(String name, String shortDescription, String longDescription, int i) {
@@ -19,10 +19,12 @@ public class Room extends Fixture {
 	
 	
 	public Room[] getExits() {
+		return exits;
 		
 	}
 		
 	public Room getExit(String direction) {
+		return null;
 		
 	}
 		

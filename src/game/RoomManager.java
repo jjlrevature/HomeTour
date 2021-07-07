@@ -8,14 +8,14 @@ public class RoomManager {
 	
 	
 	public Room[] rooms = new Room[9];
-	private Room startingRoom;
+	public Room startingRoom;
 	
 	
 	
 	
 
 	// instantiate the room objects
-	public void init() {
+	public Room[] init() {
 		Room smallClearing = new Room(
 				"Small Clearing",
 				
@@ -120,6 +120,7 @@ public class RoomManager {
 				7
 				);
 		this.rooms[8] = secretCowLevel;
+		return rooms;
 		
 		
 	}

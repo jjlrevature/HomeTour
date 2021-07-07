@@ -17,10 +17,9 @@ public class Main {
 		
 		//instantiate new Room Manager and populate memory
 		RoomManager rm = new RoomManager();
-		rm.init();
+		Room[] list = rm.init();
+		System.out.println(list);
 		
-		// assign starting room
-		Room currentRoom = rm.rooms[1];
 		
 		// placeholder variable to initiate game
 		boolean playGame = true;
@@ -30,28 +29,30 @@ public class Main {
 		
 		
 		
+		// current room and rm.rooms[] contain data but its hashed?
+		
 		alpha: while(playGame) {			
-			if (currentRoom == rm.rooms[0]) {
-				System.out.println(rm.rooms[0].getName());				
-			} else if (currentRoom == rm.rooms[1]) {
-				System.out.println("2");
-			} else if (currentRoom == rm.rooms[2]) {
-				
-			} else if (currentRoom == rm.rooms[3]) {
-				
-			} else if (currentRoom == rm.rooms[4]) {
-				
-			} else if (currentRoom == rm.rooms[5]) {
-				
-			} else if (currentRoom == rm.rooms[6]) {
-				
-			} else if (currentRoom == rm.rooms[7]) {
-				
-			} else if (currentRoom == rm.rooms[8]) {
-				
-			} else {
-				
-			}
+			if (list[0] == rm.rooms[0]) 
+				System.out.println("1");				
+//			} else if (currentRoom == rm.rooms[1]) {
+//				System.out.println("2");
+//			} else if (currentRoom == rm.rooms[2]) {
+//				
+//			} else if (currentRoom == rm.rooms[3]) {
+//				
+//			} else if (currentRoom == rm.rooms[4]) {
+//				
+//			} else if (currentRoom == rm.rooms[5]) {
+//				
+//			} else if (currentRoom == rm.rooms[6]) {
+//				
+//			} else if (currentRoom == rm.rooms[7]) {
+//				
+//			} else if (currentRoom == rm.rooms[8]) {
+//				
+//			} else {
+//				
+//			}
 			playGame = false;
 			
 		}
@@ -64,6 +65,7 @@ public class Main {
 
 	private static String[] collectInput() {
 		// scanner object to collect console input, and divide into string array and return that
+		
 		return null;
 
 	}

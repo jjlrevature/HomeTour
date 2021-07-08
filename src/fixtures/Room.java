@@ -6,14 +6,13 @@ public class Room extends Fixture {
 	protected String shortDesc;
 	protected String longDesc;
 
-	public Room(String name, String s, String l) {
-		super(name, s, l);
-		
+	public Room(String name, String s, String l,int i) {
+		super(name, s, l, i);		
 		this.exits = new Room[3];
 	}
 	
 	public Room[] getExits() {
-		
+		return this.exits;
 	}
 	
 	public Room getExit(String dir) {

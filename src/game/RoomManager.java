@@ -3,126 +3,74 @@ package game;
 import fixtures.Room;
 
 public class RoomManager {
-	
-	
-	
-	
-	public Room[] rooms = new Room[9];
 	public Room startingRoom;
+	Room[] rooms = new Room[9];
 	
-	
-	
-	
-
-	// instantiate the room objects
-	public Room[] init() {
-		Room smallClearing = new Room(
-				"Small Clearing",
-				
-				"A grassy clearing with a singular massive tree tucked near the back, in between"
-				+ " a cliff and a small pond",
-				
-				"Cardinals are singing as they dart about the crisp morning air. The smell of dew and petrichlor after"
-				+ "a soft morning drizzle.Off to the left A mother bear watches you as her two cubs frolick about near the edge of "
-				+ "the grassy field. "				
-				+ " Off to the right in a small grotto, a large oak tree looms in defiance next to an imposing cliff face. the old tree was so impressive"
-				+ "that its roots penetrated the rock and into the cliffside. "
-				+ "Also in the small grotto was a small pond, half covered in water lilies with a cacaphony of frogs and dragonflies"
-				+ "whirling and whizzing around.",
-				0
-				);
-		
-		// set startingRoom and and this room to array
+	public void init() {
+		Room smallClearing = new Room("n", "s", "l");
+		smallClearing.setName("             A Small Clearing \n");
+		smallClearing.setShortDesc("A small clearing in the middle of a wooded area \n");
+		smallClearing.setLongDesc("You exit the tree line and before you is a grassy clearing. \n"
+				+ "Off to your far left you can see a Mama Bear and her \n"
+				+ "two cubs playing in the grass. To the right you can see \n"
+				+ "a large oak tree next to a small pond, both butted up against \na rocky cliff that looms high overhead.");
 		this.rooms[0] = smallClearing;
 		this.startingRoom = smallClearing;
 		
-		Room bearArea = new Room(
-				"Grassy Meadow",
-				
-				"A comfortable shaded area near the tree line of the small clearing",
-				
-				"The mother bear perks up at you as she sees you approach. The cubs do not notice you as they wrestle with one another."
-				+ "You continue to approach the bears unabashed, and as you get closer the mother bear roars a warning at you.",
-				1
-				);
-		
+		Room bearArea = new Room("n","s","l");
+		bearArea.setName("             Forest Edge \n");
+		bearArea.setShortDesc("A small shaded area near the forest edge \n");
+		bearArea.setLongDesc("As you Approach the Mama Bear perks up and roars vigorously.");
 		this.rooms[1] = bearArea;
 		
-		Room smallGrotto = new Room(
-				"Small Grotto Entrance",
-				
-				"the area encompassing a large oak tree, a cave entrance, and a small pond",
-				
-				"As you enter the small grotto you find a cave looming to the left, just behind the tree trunk, hidden by a small overhang. You also"
-				+ "see an old tree stump near to the edge of the pond with a fishing pole and some bait.",
-				2
-				);
+		Room smallGrotto = new Room("n","s","l");
+		smallGrotto.setName("           Small Grotto \n");
+		smallGrotto.setShortDesc("A small area including a pond, a tree, and a cave entrance \n");
+		smallGrotto.setLongDesc("Upon arriving closer, on your left you can see a cave entrance hidden \nbehind"
+				+ "the tall and imposing oak tree. however, on your right"
+				+ "you see a \npond covered in water lilies, with an unusual glow coming from the water.");
 		this.rooms[2] = smallGrotto;
 		
-		Room cavern = new Room(
-				"Wyrmlight Cavern",
-								
-				"A vast cavern with smaller passageways and rocky plateau's",
-				
-				"Upon entering the cave and following a short bend, you enter a vast cavernous expanse that is illuminated by a multide of soft blue lights."
-				+ "You can see two smaller tunnels exiting the room, one to your left, and one to your right. You can also see a small plateau up ahead of you "
-				+ "which seems to have dancing balls of light upon it",3
-				
-				);
+		Room cavern = new Room("n","s","l");
+		cavern.setName("           Wyrmlight Cavern\n");
+		cavern.setShortDesc("A winding expansive cave network\n");
+		cavern.setLongDesc("Entering the entrance to the cave, you find yourself in a large expanse. \n"
+				+ "To the left and to the right, you can spot a passageways to other room.\n"
+				+ "In front of you, however, is a rocky ledge with what appear to be dancing balls of light upon it");
 		this.rooms[3] = cavern;
 		
-		Room rockLedge = new Room(
-				"",
-				
-				"",
-				
-				"",
-				3
-				);
-		this.rooms[4] = rockLedge;
+		Room rockLedge = new Room("n","s","l");
+		rockLedge.setName(null);
+		rockLedge.setShortDesc(null);
+		rockLedge.setLongDesc(null);
+		this.rooms[4]= rockLedge;
 		
-		Room subRoom1 = new Room(
-				"",
-				
-				"",
-				
-				"",
-				4
-				);
+		Room subRoom1 = new Room("n","s","l");
+		subRoom1.setName(null);
+		subRoom1.setShortDesc(null);
+		subRoom1.setLongDesc(null);
 		this.rooms[5] = subRoom1;
 		
-		Room subRoom2 = new Room(
-				"",
-				
-				"",
-				
-				"",
-				5
-				);
+		Room subRoom2 = new Room("n","s","l");
+		subRoom2.setName(null);
+		subRoom2.setShortDesc(null);
+		subRoom2.setLongDesc(null);
 		this.rooms[6] = subRoom2;
 		
-		Room subRoom3 = new Room(
-				"",
-				
-				"",
-				
-				"",
-				6
-				);
+		Room subRoom3 = new Room("n","s","l");
+		subRoom3.setName(null);
+		subRoom3.setShortDesc(null);
+		subRoom3.setLongDesc(null);
 		this.rooms[7] = subRoom3;
 		
-		Room secretCowLevel = new Room(
-				"",
-				
-				"",
-				
-				"",
-				7
-				);
+		Room secretCowLevel = new Room("n","s","l");
+		secretCowLevel.setName(null);
+		secretCowLevel.setShortDesc(null);
+		secretCowLevel.setLongDesc(null);
 		this.rooms[8] = secretCowLevel;
-		return rooms;
-		
-		
 	}
-	public Room[] getRooms() { return this.rooms; }
+	
+	
+	
+	
 }

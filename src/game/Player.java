@@ -3,9 +3,7 @@ package game;
 import fixtures.Room;
 
 public class Player {
-	Room currentRoom;
+	public Room currentRoom;
+	
 	
 }
-	
-	// has inventory
-

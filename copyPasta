@@ -36,10 +36,3 @@ approach small grotto)/EXIT				___________/	    	|					  \										   /						 \
 
 
 
-
-fixture > room >
-		> item
-
-
-
-use room manager to select room and options

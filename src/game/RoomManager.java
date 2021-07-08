@@ -27,7 +27,7 @@ public class RoomManager {
 		smallGrotto.setName("           Small Grotto \n");
 		smallGrotto.setShortDesc("A small area including a pond, a tree, and a cave entrance \n");
 		smallGrotto.setLongDesc("Upon arriving closer, on your left you can see a cave entrance hidden \nbehind"
-				+ "the tall and imposing oak tree. however, on your right"
+				+ "the tall and imposing oak tree. however, on your right "
 				+ "you see a \npond covered in water lilies, with an unusual glow coming from the water.");
 		this.rooms[2] = smallGrotto;
 		

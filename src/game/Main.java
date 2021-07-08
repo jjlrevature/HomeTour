@@ -16,7 +16,7 @@ public class Main {
 		rm.init();
 		
 		// set current room to starting room
-		p.currentRoom = rm.rooms[2];
+		p.currentRoom = rm.rooms[0];
 		
 		// print initial room
 		printRoom(p);

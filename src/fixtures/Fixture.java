@@ -2,7 +2,10 @@ package fixtures;
 
 public abstract class Fixture {
 	public Fixture(String name, String shortDescription, String longDescription, int i) {
-		
+		this.name = name;
+		this.shortDescription = shortDescription;
+		this.longDescription = longDescription;
+		this.index = i;
 	}
 	
 	public String name;

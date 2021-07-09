@@ -12,11 +12,11 @@ public class RoomManager {
 		smallClearing.setShortDesc("A small clearing in the middle of a wooded area \n");
 		smallClearing.setLongDesc("You exit the tree line and before you is a grassy clearing. \n"
 				+ "Off to your far left you can see a Mama Bear and her \n"
-				+ "two cubs playing in the grass. To the right you can see a grotto containing \n"
+				+ "two cubs playing in the grass. To the right you can see a Grotto containing \n"
 				+ "a large oak tree next to a small pond, both butted up against \na rocky cliff that looms high overhead. \n"
 				+ "\ngo towards bears \n"
 				+ "go to grotto \n"
-				+ "teleport away");
+				+ "teleport far away");
 		smallClearing.setIndex(0);
 		this.rooms[0] = smallClearing;
 		this.startingRoom = smallClearing;
@@ -27,7 +27,7 @@ public class RoomManager {
 		bearArea.setShortDesc("A small shaded area near the forest edge \n");
 		bearArea.setLongDesc("As you Approach the Mama Bear perks up and roars vigorously. There is still time to back away!\n"
 				+ " \nsit and wait\n"
-				+ "run towards grotto\n"
+				+ "go towards grotto\n"
 				+ "teleport away");
 		bearArea.setIndex(1);
 		this.rooms[1] = bearArea;
@@ -37,8 +37,9 @@ public class RoomManager {
 		smallGrotto.setShortDesc("A small area including a pond, a tree, and a cave entrance \n");
 		smallGrotto.setLongDesc("Upon arriving closer, on your left you can see a cave entrance hidden \nbehind"
 				+ "the tall and imposing oak tree. however, on your right "
-				+ "you see a \npond covered in water lilies, with an unusual glow coming from the water.\n"
-				+ "\ngo to cave\n"
+				+ "you see a \npond covered in water lilies, with a mysterious glow coming from the water.\n"
+				+ "You spot a tree stump near the edge of the water with a fishing pole at its base.\n"
+				+ "\ngo into cave\n"
 				+ "swim in pond\n"
 				+ "go to bears\n"
 				+ "use fishing pole\n");
@@ -48,13 +49,16 @@ public class RoomManager {
 		Room cavern = new Room("n","s","l",3);
 		cavern.setName(" \n          Wyrmlight Cavern\n");
 		cavern.setShortDesc("A winding expansive cave network\n");
-		cavern.setLongDesc("Entering the entrance to the cave, you find yourself in a large expanse. \n"
-				+ "To the left and to the right, you can spot a passageways to other room.\n"
-				+ "In front of you, however, is a rocky plateau with what appear to be dancing balls of light upon it\n"
-				+ "\ngo to left\n"
-				+ "go to right\n"
+		cavern.setLongDesc("Entering the entrance to the cave, you find yourself in a large expanse."
+				+ "The top of the \nmain cavern shimmers in a low violet light in the shape of a dragon,"
+				+ " with its tail \nreaching across the entirety of the cave. "
+				+ " To the left you see a little hollow \nwhich appears to be a storage room, you can spot a passageway to another room.\n"
+				+ "In front of you, however, is a rocky plateau with what appear to be dancing balls\n"
+				+ "of light upon it.\n"
+				+ "\ngo to storage\n"
+				+ "go through passageway\n"
 				+ "climb rocky plateau\n"
-				+ "go back out");
+				+ "go back outside");
 		cavern.setIndex(3);
 		this.rooms[3] = cavern;
 		
@@ -64,7 +68,7 @@ public class RoomManager {
 		rockLedge.setLongDesc("As you eclipse the top of the plateua you can see what you thought were \n"
 				+ "dancing lights, was actually a portal! The glowing ethereal lights beckon to\n"
 				+ "you to unlock the pathway into the new dimension\n"
-				+ "\nEnter portal\n"
+				+ "\nenter the portal\n"
 				+ "climb back down\n");
 		rockLedge.setIndex(4);
 		this.rooms[4]= rockLedge;
@@ -79,20 +83,22 @@ public class RoomManager {
 		this.rooms[5] = subRoom1;
 		
 		
-		Room subRoom3 = new Room("n","s","l",7);
-		subRoom3.setName("\n            A secret cave\n");
-		subRoom3.setShortDesc("swimming in the pond, you found a small cave entrance underwater and explore it\n");
-		subRoom3.setLongDesc("Upon entering the cave from the tunnel in the pond, you enter a small room \ninside of a larger cave complex."
-				+ " You can see a larger cavern through a tunnel off the left as well as the remains of a fire. \n"
+		Room subRoom3 = new Room("n","s","l",6);
+		subRoom3.setName("\n            End of Passageway\n");
+		subRoom3.setShortDesc("As you come to the end of the passageway, you find yourself in a small room\n");
+		subRoom3.setLongDesc("You enter into the small room from the passageway leading away from the cavern."
+				+ " In front \nof you is what appears to be the remains of a fire pit, and to your right is a a pool of water \n"
 				+ "\ngo through tunnel\n"
-				+ "go back out\n");
+				+ "swim in water\n");
 		subRoom3.setIndex(7);
 		this.rooms[7] = subRoom3;
 		
-		Room secretCowLevel = new Room("n","s","l",8);
-		secretCowLevel.setName("\n           The Secret Cow Level");
-		secretCowLevel.setShortDesc(null);
-		secretCowLevel.setLongDesc(null);
+		Room secretCowLevel = new Room("n","s","l",7);
+		secretCowLevel.setName("\n           The Secret Cow Level\n");
+		secretCowLevel.setShortDesc("You emerge from the portal in the town of Tristram\n");
+		secretCowLevel.setLongDesc("A chill runs down your spine at the gruesome sight before you. a terrible eveil has \n"
+				+ "befallel the town of Tristram. The sight before you is not for mortal eyes to lay upon.\n"
+				+ "Off in the distance you hear a cacaphony of Moo's.. They sound like they are approaching..");
 		secretCowLevel.setIndex(8);
 		this.rooms[8] = secretCowLevel;
 	}

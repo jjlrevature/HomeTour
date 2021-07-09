@@ -2,6 +2,7 @@ package fixtures;
 
 public class Bear extends Item implements Animal {
 	
+	public boolean isHungry = true;
 	
 
 	public Bear(String name, String shortDescription, String longDescription, int i) {

@@ -1,7 +1,7 @@
 package fixtures;
 
 public interface Animal {
-	public boolean isHungry = true;
+	
 	
 	public boolean getHungry();
 	

@@ -6,6 +6,11 @@ public class RoomManager {
 	public Room startingRoom;
 	Room[] rooms = new Room[9];
 	
+	
+			// some learning happened here, i am aware that you do not need to setterMethod if you have a proper constructor
+			// i did not when first starting the project..
+			// and no index is not used, i was planning on it but had to scale back
+	
 	public void init() {
 		Room smallClearing = new Room("n", "s", "l", 0);
 		smallClearing.setName("             A Small Clearing \n");

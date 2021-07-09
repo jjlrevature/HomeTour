@@ -16,26 +16,28 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		// instantiate new player and generate all the rooms and items. also create array list
+		// instantiate objects. create array list
 		RoomManager rm = new RoomManager();		
-		rm.init();
 		ItemManager im = new ItemManager();
-		im.initItems();
-		
 		Bear bear = new Bear("Mama Bear", "", "", 0);
 		Player p = new Player();
 		ArrayList<Item> invItemsList = new ArrayList<Item>();
+		
+		//instantiate rooms and items in memory
+		rm.init();
+		im.initItems();
 		
 		
 		// set current room to starting room		
 		p.currentRoom = rm.rooms[0];
 		
+		// print main objective
 		System.out.println("\n\n\n              Objective: Be friends with the bears, or die trying"
 				+ "\nIf you should wish to quite and anytime, please enter 'teleport far away'.\n"
 				+ "please enter the commands you see that you would like to execute\n");
+		
 		// Print initial menu
 		printRoom(p, invItemsList, im, rm);	
-		
 		
 		// Game loop
 		do {			
@@ -57,29 +59,22 @@ public class Main {
 					+ "\n                           The End!");
 			b = false;
 		}
-		
 		if(a.contains(im.allItems[2]) && p.currentRoom.getIndex() == 1)
 			System.out.println("give up fish?");
 	}
+	
+	
 	
 	private static String[] collectInput() {
 		// parse first index of passed string, is action. return command
 		String command = sc.next();
 		String i = sc.next();
 		String destination = sc.next();
-//		do {
-//			command = sc.next();
-//			i = sc.next();
-//			destination = sc.next();
-//			sc.nextLine();
-//			System.out.println("reset");
-//			
-//		} while(destination == null);
 		return new String[] { command, destination };
 		
 	}
 	
-	
+	// yes this nested hell noodle is refactor-able
 	
 	private static void parse(String[] command, Player p, RoomManager rm, ItemManager im, ArrayList<Item> a, Bear bear) {
 			
@@ -129,6 +124,8 @@ public class Main {
 				break;
 			case "swim":			
 				switch(command[1]) {
+				
+				//  sets description depending on which way you enter the rooms
 				case "pond":
 					p.currentRoom = rm.rooms[7];					
 					rm.rooms[7].setShortDesc("swimming in the pond, you found a small cave entrance underwater and explore it\n");
@@ -148,6 +145,8 @@ public class Main {
 				}
 				break;
 			case "climb":
+				
+				// Separate key words to denote traveling direction in certain rooms
 				switch(command[1]) {
 				case "down":
 					p.currentRoom = rm.rooms[3];
@@ -158,6 +157,8 @@ public class Main {
 				}	
 				break;
 			case "sit":
+				
+				// victory condition / if you gave bear a fish, you dont die
 				if(bear.isHungry){
 					System.out.println("\nYou have died.");				
 				} else {
@@ -167,11 +168,15 @@ public class Main {
 				b = false;
 				break;
 			case "give":
+				
 				// make bear not hungry
 				bear.setHungry(false);
 				rm.rooms[2].setLongDesc("As you Approach the Mama Bear perks up and looks at you inquisitevely. It seems to smell something tasty that you have.");
 				break;
 			case "use":
+				
+				// Math.random() to generate an integer and "roll" your chances of catching a fish
+				// the fish is then added to players inventory
 				double ph = Math.random();
 				System.out.println("you rolled a " + ph);
 				if( ph > 0.7) {
@@ -192,11 +197,14 @@ public class Main {
 				
 				break;
 				
+			// exit clause
 			case "teleport":
 				b = false;	
 				break;
 				
 			}
+			
+			// goodbye statement
 			if(b == false) {
 				System.out.println("Fare thee well, Traveler");
 			} else {

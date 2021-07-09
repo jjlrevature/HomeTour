@@ -60,7 +60,7 @@ public class Main {
 			b = false;
 		}
 		if(a.contains(im.allItems[2]) && p.currentRoom.getIndex() == 1)
-			System.out.println("give up fish?");
+			System.out.println("give up fish");
 	}
 	
 	

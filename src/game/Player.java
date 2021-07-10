@@ -1,18 +1,20 @@
 package game;
 
-import fixtures.Item;
+
 import fixtures.Room;
 
 public class Player {
-	Room currentRoom;	
+	private Room currentRoom;	
 	private boolean hasSwum = false;
-	public Item[] inventory;
 	
 	
-	public Item[] getInv() {
-		return this.inventory;
+	Room setCurrentRoom(Room r) {
+		return this.currentRoom = r;
 	}
 	
+	public Room getCurrentRoom() {
+		return this.currentRoom;
+	}
 	
 	public boolean getHasSwum() {return this.hasSwum;}
 	

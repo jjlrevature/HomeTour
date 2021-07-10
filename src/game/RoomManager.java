@@ -34,7 +34,6 @@ public class RoomManager {
 				+ " \nsit and wait\n"
 				+ "go towards grotto\n"
 				+ "teleport away");
-		bearArea.setIndex(1);
 		this.rooms[1] = bearArea;
 		
 		Room smallGrotto = new Room("n","s","l",2);
@@ -48,7 +47,6 @@ public class RoomManager {
 				+ "swim in pond\n"
 				+ "go to bears\n"
 				+ "use fishing pole\n");
-		smallGrotto.setIndex(2);
 		this.rooms[2] = smallGrotto;
 		
 		Room cavern = new Room("n","s","l",3);
@@ -64,7 +62,6 @@ public class RoomManager {
 				+ "go through passageway\n"
 				+ "climb rocky plateau\n"
 				+ "go back outside");
-		cavern.setIndex(3);
 		this.rooms[3] = cavern;
 		
 		Room rockLedge = new Room("n","s","l",4);
@@ -75,7 +72,6 @@ public class RoomManager {
 				+ "you to unlock the pathway into the new dimension\n"
 				+ "\nenter the portal\n"
 				+ "climb back down\n");
-		rockLedge.setIndex(4);
 		this.rooms[4]= rockLedge;
 		
 		Room subRoom1 = new Room("n","s","l",5);
@@ -84,27 +80,24 @@ public class RoomManager {
 		subRoom1.setLongDesc("Entering the room, you find yourself standing amongst various sized pots\n"
 				+ "and baskets. You can see that the inhabitants have gathered plenty of nuts, berries, and fruits\n"
 				+ "\ngo to cave\n");
-		subRoom1.setIndex(5);
 		this.rooms[5] = subRoom1;
 		
 		
-		Room subRoom3 = new Room("n","s","l",6);
+		Room subRoom3 = new Room("n","s","l",7);
 		subRoom3.setName("\n            End of Passageway\n");
 		subRoom3.setShortDesc("As you come to the end of the passageway, you find yourself in a small room\n");
 		subRoom3.setLongDesc("You enter into the small room from the passageway leading away from the cavern."
 				+ " In front \nof you is what appears to be the remains of a fire pit, and to your right is a a pool of water \n"
 				+ "\ngo through tunnel\n"
 				+ "swim in water\n");
-		subRoom3.setIndex(7);
 		this.rooms[7] = subRoom3;
 		
-		Room secretCowLevel = new Room("n","s","l",7);
+		Room secretCowLevel = new Room("n","s","l",8);
 		secretCowLevel.setName("\n           The Secret Cow Level\n");
 		secretCowLevel.setShortDesc("You emerge from the portal in the town of Tristram\n");
 		secretCowLevel.setLongDesc("A chill runs down your spine at the gruesome sight before you. a terrible eveil has \n"
 				+ "befallel the town of Tristram. The sight before you is not for mortal eyes to lay upon.\n"
 				+ "Off in the distance you hear a cacaphony of Moo's.. They sound like they are approaching..");
-		secretCowLevel.setIndex(8);
 		this.rooms[8] = secretCowLevel;
 	}
 	

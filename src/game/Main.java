@@ -29,7 +29,7 @@ public class Main {
 		
 		
 		// set current room to starting room		
-		p.currentRoom = rm.rooms[0];
+		p.setCurrentRoom(rm.rooms[0]);
 		
 		// print main objective
 		System.out.println("\n\n\n              Objective: Be friends with the bears, or die trying"
@@ -51,19 +51,29 @@ public class Main {
 	
 	private static void printRoom(Player p,ArrayList<Item> a, ItemManager im, RoomManager rm) {
 		// print a prompt about players current room
-		System.out.println(p.currentRoom.getName());
-		System.out.println(p.currentRoom.getShortDesc());
-		System.out.println(p.currentRoom.getLongDesc());
-		if(a.contains(im.allItems[1]) && p.currentRoom.getIndex() == 8) {
+		System.out.println(p.getCurrentRoom().getName());
+		System.out.println(p.getCurrentRoom().getShortDesc());
+		System.out.println(p.getCurrentRoom().getLongDesc());
+		if(a.contains(im.allItems[1]) && p.getCurrentRoom().getIndex() == 8) {
 			System.out.println("And so our adventurer was never heard from after stepping into the portal. "
 					+ "\n                           The End!");
 			b = false;
 		}
-		if(a.contains(im.allItems[2]) && p.currentRoom.getIndex() == 1)
+		if(a.contains(im.allItems[2]) && p.getCurrentRoom().getIndex() == 1) {
 			System.out.println("give up fish");
+			removeItem(a,im);
+		}
+			
 	}
 	
-	
+	public static void removeItem(ArrayList<Item> a, ItemManager im) {
+		int r = a.indexOf(im.allItems[2]);
+		try {
+			a.remove(r);				
+		} catch(IndexOutOfBoundsException e) {
+			
+		}
+	}
 	
 	private static String[] collectInput() {
 		// parse first index of passed string, is action. return command
@@ -83,38 +93,37 @@ public class Main {
 			case "go":				
 				switch(command[1]) {
 				case "clearing":
-					p.currentRoom = rm.rooms[0];
+					p.setCurrentRoom(rm.rooms[0]);
 					break;
 				case "bears":
-					p.currentRoom = rm.rooms[1];				
+					p.setCurrentRoom(rm.rooms[1]);				
 					break;
 				case "grotto":
-					p.currentRoom = rm.rooms[2];
+					p.setCurrentRoom(rm.rooms[2]);
 					break;
 				case "cave":
-					p.currentRoom = rm.rooms[3];
+					p.setCurrentRoom(rm.rooms[3]);
 					break;
 				case "storage":
-					p.currentRoom = rm.rooms[5];
+					p.setCurrentRoom(rm.rooms[5]);
 					break;
 				case "passageway":
-					p.currentRoom = rm.rooms[7];
-					break;			
+					p.setCurrentRoom(rm.rooms[7]);
+					break;
 				case "outside":
-					p.currentRoom = rm.rooms[2];
+					p.setCurrentRoom(rm.rooms[2]);
 					break;
 				case "tunnel":
-					p.currentRoom = rm.rooms[3];
-					break;
-				case "water":
-					p.currentRoom = rm.rooms[2];
-					break;				
+					p.setCurrentRoom(rm.rooms[3]);
+					break;							
 				}
 				break;
-			case "enter":			
+				
+			case "enter":
+				
 				try {
 					if(a.contains(im.allItems[1])) {
-						p.currentRoom = rm.rooms[8];
+						p.setCurrentRoom(rm.rooms[8]);
 						break;				
 					}
 				} catch(NullPointerException e) {
@@ -122,20 +131,23 @@ public class Main {
 				}
 				System.out.println("\nIt seems something magical is required to travel through this portal.");
 				break;
+				
 			case "swim":			
 				switch(command[1]) {
 				
 				//  sets description depending on which way you enter the rooms
 				case "pond":
-					p.currentRoom = rm.rooms[7];					
+					
+					p.setCurrentRoom(rm.rooms[7]);				
 					rm.rooms[7].setShortDesc("swimming in the pond, you found a small cave entrance underwater and explore it\n");
 					rm.rooms[7].setLongDesc("Upon entering the cave from the tunnel in the pond, you enter a small room \ninside of a larger cave complex."
 							+ " You can see a larger cavern through a tunnel off \nthe left as well as the remains of a fire. \n"
 							+ "\ngo through tunnel\n"
 							+ "swim in water\n");
 					break;
+					
 				case "water":
-					p.currentRoom = rm.rooms[2];
+					p.setCurrentRoom(rm.rooms[2]);
 					rm.rooms[7].setShortDesc("As you come to the end of the passageway, you find yourself in a small room\n");
 					rm.rooms[7].setLongDesc("You enter into the small room from the passageway leading away from the cavern."
 							+ " In front \nof you is what appears to be the remains of a fire pit, and to your right is a a pool of water \n"
@@ -143,19 +155,22 @@ public class Main {
 							+ "swim in water\n");
 					break;
 				}
+				
 				break;
+				
 			case "climb":
 				
 				// Separate key words to denote traveling direction in certain rooms
 				switch(command[1]) {
 				case "down":
-					p.currentRoom = rm.rooms[3];
+					p.setCurrentRoom(rm.rooms[3]);
 					break;
 				case "plateau":
-					p.currentRoom = rm.rooms[4];
+					p.setCurrentRoom(rm.rooms[4]);
 					break;
 				}	
 				break;
+				
 			case "sit":
 				
 				// victory condition / if you gave bear a fish, you dont die
@@ -167,16 +182,19 @@ public class Main {
 				}
 				b = false;
 				break;
+				
 			case "give":
 				
 				// make bear not hungry
 				bear.setHungry(false);
+				removeItem(a,im);
 				rm.rooms[2].setLongDesc("As you Approach the Mama Bear perks up and looks at you inquisitevely. It seems to smell something tasty that you have.");
 				break;
 			case "use":
 				
 				// Math.random() to generate an integer and "roll" your chances of catching a fish
 				// the fish is then added to players inventory
+				
 				double ph = Math.random();
 				System.out.println("you rolled a " + ph);
 				if( ph > 0.7) {
@@ -193,15 +211,13 @@ public class Main {
 					a.add(im.allItems[2]);
 				} else {
 					System.out.println("Bummer! No luck!");
-				}
-				
+				}				
 				break;
 				
 			// exit clause
 			case "teleport":
 				b = false;	
-				break;
-				
+				break;				
 			}
 			
 			// goodbye statement

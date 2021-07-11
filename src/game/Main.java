@@ -64,6 +64,19 @@ public class Main {
 			
 	}
 	
+	private static void printInventory(ItemManager im, ArrayList<Item> a) {
+		if(a.size() == 0 ) {
+			System.out.println("\nSuch empty. Much sad\n");
+		} else {
+			System.out.println("\n            Your Inventory:\n");
+			for(Item i: a) {
+				String j = i.getName();
+				System.out.println(j);
+			}
+		}
+		
+	}
+	
 	private static void printItem(ItemManager im, int i) {
 		System.out.println("\n");
 		System.out.println(im.allItems[i].getName());
@@ -199,6 +212,14 @@ public class Main {
 				fish(a,im);							
 				break;
 				
+			case "check":
+				printInventory(im, a);
+				break;
+				
+			case "craft":
+				craftItem(a,im,4,5,6);
+				break;
+				
 			// exit clause
 			case "teleport":
 				b = false;	
@@ -214,6 +235,15 @@ public class Main {
 		} else {
 			System.out.println("please enter a valid command.");
 		}
+	}
+	
+	private static void craftItem(ArrayList<Item> a, ItemManager im, int material1, int material2, int resultItem) {
+		if(a.contains(im.allItems[material1]) && a.contains(im.allItems[material2])) {
+			a.add(im.allItems[resultItem]);
+		} else {
+			System.out.println("\nYou do not have the necessary materials.\n");
+		}
+		
 	}
 	
 	private static boolean hasItem(ArrayList<Item> a, ItemManager im, int i) {

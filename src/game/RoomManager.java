@@ -99,6 +99,8 @@ public class RoomManager {
 				+ "befallel the town of Tristram. The sight before you is not for mortal eyes to lay upon.\n"
 				+ "Off in the distance you hear a cacaphony of Moo's.. They sound like they are approaching..");
 		this.rooms[8] = secretCowLevel;
+		
+		
 	}
 	
 	

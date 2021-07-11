@@ -2,7 +2,8 @@ package fixtures;
 
 public class Bear extends Item implements Animal {
 	
-	public boolean isHungry = true;
+	private boolean isHungry = true;
+	private boolean isFriendly = false;
 	
 
 	public Bear(String name, String shortDescription, String longDescription, int i) {
@@ -23,7 +24,22 @@ public class Bear extends Item implements Animal {
 	@Override
 	public void setHungry(boolean b) {
 		// TODO Auto-generated method stub
-		isHungry = b;
+		this.isHungry = b;
+	}
+
+
+
+	@Override
+	public boolean getFriendly() {
+		// TODO Auto-generated method stub
+		return isFriendly;
+	}
+
+
+
+	@Override
+	public void setFriendly(boolean b) {
+		this.isFriendly = b;
 	}
 
 }

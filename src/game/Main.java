@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.NullPointerException;
 
-import fixtures.Animal;
 import fixtures.Bear;
 import fixtures.Item;
-import fixtures.Room;
 
 public class Main {
 	
-	public static Scanner sc = new Scanner(System.in);	
+	static Scanner sc = new Scanner(System.in);
 	public static boolean b = true;
 	
 	public static void main(String[] args) {
@@ -64,6 +62,13 @@ public class Main {
 			removeItem(a,im);
 		}
 			
+	}
+	
+	private static void printItem(ItemManager im, int i) {
+		System.out.println("\n");
+		System.out.println(im.allItems[i].getName());
+		System.out.println(im.allItems[i].getShortDesc());
+		System.out.println(im.allItems[i].getLongDesc());
 	}
 	
 	public static void removeItem(ArrayList<Item> a, ItemManager im) {
@@ -121,15 +126,11 @@ public class Main {
 				
 			case "enter":
 				
-				try {
-					if(a.contains(im.allItems[1])) {
-						p.setCurrentRoom(rm.rooms[8]);
-						break;				
-					}
-				} catch(NullPointerException e) {
-					
+				if(hasItem(a,im,1)) {
+					p.setCurrentRoom(rm.rooms[8]);
+				} else {
+					System.out.println("\nIt seems something magical is required to travel through this portal.");
 				}
-				System.out.println("\nIt seems something magical is required to travel through this portal.");
 				break;
 				
 			case "swim":			
@@ -174,7 +175,7 @@ public class Main {
 			case "sit":
 				
 				// victory condition / if you gave bear a fish, you dont die
-				if(bear.isHungry){
+				if(bear.getHungry()){
 					System.out.println("\nYou have died.");				
 				} else {
 					System.out.println("\nThe bears sit next to you as they eat the fish.\n");
@@ -187,31 +188,15 @@ public class Main {
 				
 				// make bear not hungry
 				bear.setHungry(false);
+				bear.setFriendly(true);
 				removeItem(a,im);
-				rm.rooms[2].setLongDesc("As you Approach the Mama Bear perks up and looks at you inquisitevely. It seems to smell something tasty that you have.");
+				rm.rooms[1].setLongDesc("the Mama Bear feasts upon the fish as her cubs approach you to play."
+						+ "\n\nsit and play\n"
+						+ "go towards grotto"
+						+ "");
 				break;
-			case "use":
-				
-				// Math.random() to generate an integer and "roll" your chances of catching a fish
-				// the fish is then added to players inventory
-				
-				double ph = Math.random();
-				System.out.println("you rolled a " + ph);
-				if( ph > 0.7) {
-					System.out.println("\n");
-					System.out.println(im.allItems[1].getName());
-					System.out.println(im.allItems[1].getShortDesc());
-					System.out.println("*****You have acuired THE GOLDEN FISH******");
-					a.add(im.allItems[1]);
-				} else if(ph > 0.03) {
-					System.out.println("\n");
-					System.out.println(im.allItems[2].getName());
-					System.out.println(im.allItems[2].getShortDesc());
-					System.out.println("You have acquired a Meaty Fish!");
-					a.add(im.allItems[2]);
-				} else {
-					System.out.println("Bummer! No luck!");
-				}				
+			case "use":				
+				fish(a,im);							
 				break;
 				
 			// exit clause
@@ -229,5 +214,36 @@ public class Main {
 		} else {
 			System.out.println("please enter a valid command.");
 		}
+	}
+	
+	private static boolean hasItem(ArrayList<Item> a, ItemManager im, int i) {
+		boolean d = false;
+		try {
+			if(a.contains(im.allItems[i])) {
+				d = true;				
+			} else {
+				d = false;
+			}
+		} catch(NullPointerException e) {
+			
+		}
+		return d;
+	}
+	
+	private static void fish(ArrayList<Item> a, ItemManager im) {
+		// Math.random() to generate an integer and "roll" your chances of catching a fish
+		// the fish is then added to players inventory
+		
+		double ph = Math.random();
+		System.out.println("you rolled a " + ph);
+		if( ph > 0.7) {
+			printItem(im,1);
+			a.add(im.allItems[1]);
+		} else if(ph > 0.03) {
+			printItem(im,2);
+			a.add(im.allItems[2]);
+		} else {
+			System.out.println("Bummer! No luck!");
+		}	
 	}
 }

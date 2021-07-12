@@ -2,6 +2,8 @@ package game;
 
 
 
+import java.util.ArrayList;
+
 import fixtures.Item;
 
 public class ItemManager {
@@ -21,9 +23,9 @@ public class ItemManager {
 		Item mythriteOre = new Item("              Mythrite Ore", "an ore used for crafting", 
 				"******You have acquired Mythrite Ore******", 3);
 		Item standardFlux = new Item("              Standard Flux","an item used for crafting",
-				"******You have acquired Standard Flux", 4);
-		Item mythriteSword =new Item("              Mythrite Sword", "A finely crafted sword",
-				"******You have acquired Mythrite Sword******", 5);
+				"******You have acquired Standard Flux******", 4);
+		Item mythriteSword = new Item("              Mythrite Sword", "A finely crafted sword",
+				"******You have crafted Mythrite Sword******", 5);
 		
 		this.allItems[0] = ghost;
 		this.allItems[1] = goldenFish;
@@ -35,6 +37,5 @@ public class ItemManager {
 		
 		
 	}
-	
 	
 }

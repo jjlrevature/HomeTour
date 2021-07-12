@@ -52,6 +52,11 @@ public class Main {
 		System.out.println(p.getCurrentRoom().getName());
 		System.out.println(p.getCurrentRoom().getShortDesc());
 		System.out.println(p.getCurrentRoom().getLongDesc());
+		conditionalActions(p,a,im,rm);
+			
+	}
+	
+	private static void conditionalActions(Player p, ArrayList<Item> a, ItemManager im, RoomManager rm) {
 		if(a.contains(im.allItems[1]) && p.getCurrentRoom().getIndex() == 8) {
 			System.out.println("And so our adventurer was never heard from after stepping into the portal. "
 					+ "\n                           The End!");
@@ -61,7 +66,6 @@ public class Main {
 			System.out.println("give up fish");
 			removeItem(a,im);
 		}
-			
 	}
 	
 	private static void printInventory(ItemManager im, ArrayList<Item> a) {
@@ -73,8 +77,7 @@ public class Main {
 				String j = i.getName();
 				System.out.println(j);
 			}
-		}
-		
+		}		
 	}
 	
 	private static void printItem(ItemManager im, int i) {
@@ -100,6 +103,48 @@ public class Main {
 		String destination = sc.next();
 		return new String[] { command, destination };
 		
+	}
+	
+
+	private static void craftItem(ArrayList<Item> a, ItemManager im, int material1, int material2, int resultItem) {
+		if(a.contains(im.allItems[material1]) && a.contains(im.allItems[material2])) {
+			a.add(im.allItems[resultItem]);
+			System.out.println(im.allItems[6].getLongDesc());
+		} else {
+			System.out.println("\nYou do not have the necessary materials.\n");
+		}
+		
+	}
+	
+	private static boolean hasItem(ArrayList<Item> a, ItemManager im, int i) {
+		boolean d = false;
+		try {
+			if(a.contains(im.allItems[i])) {
+				d = true;				
+			} else {
+				d = false;
+			}
+		} catch(NullPointerException e) {
+			
+		}
+		return d;
+	}
+	
+	private static void fish(ArrayList<Item> a, ItemManager im) {
+		// Math.random() to generate an integer and "roll" your chances of catching a fish
+		// the fish is then added to players inventory
+		
+		double ph = Math.random();
+		System.out.println("you rolled a " + ph);
+		if( ph > 0.7) {
+			printItem(im,1);
+			a.add(im.allItems[1]);
+		} else if(ph > 0.03) {
+			printItem(im,2);
+			a.add(im.allItems[2]);
+		} else {
+			System.out.println("Bummer! No luck!");
+		}	
 	}
 	
 	// yes this nested hell noodle is refactor-able
@@ -220,6 +265,20 @@ public class Main {
 				craftItem(a,im,4,5,6);
 				break;
 				
+			case "open":
+				switch(command[1]) {
+					case "basket":
+						a.add(im.allItems[4]);
+						System.out.println(im.allItems[4].getLongDesc());
+						break;
+					
+					case "cabinet":
+						a.add(im.allItems[5]);
+						System.out.println(im.allItems[5].getLongDesc());
+						break;
+				}
+				break;
+				
 			// exit clause
 			case "teleport":
 				b = false;	
@@ -237,43 +296,4 @@ public class Main {
 		}
 	}
 	
-	private static void craftItem(ArrayList<Item> a, ItemManager im, int material1, int material2, int resultItem) {
-		if(a.contains(im.allItems[material1]) && a.contains(im.allItems[material2])) {
-			a.add(im.allItems[resultItem]);
-		} else {
-			System.out.println("\nYou do not have the necessary materials.\n");
-		}
-		
-	}
-	
-	private static boolean hasItem(ArrayList<Item> a, ItemManager im, int i) {
-		boolean d = false;
-		try {
-			if(a.contains(im.allItems[i])) {
-				d = true;				
-			} else {
-				d = false;
-			}
-		} catch(NullPointerException e) {
-			
-		}
-		return d;
-	}
-	
-	private static void fish(ArrayList<Item> a, ItemManager im) {
-		// Math.random() to generate an integer and "roll" your chances of catching a fish
-		// the fish is then added to players inventory
-		
-		double ph = Math.random();
-		System.out.println("you rolled a " + ph);
-		if( ph > 0.7) {
-			printItem(im,1);
-			a.add(im.allItems[1]);
-		} else if(ph > 0.03) {
-			printItem(im,2);
-			a.add(im.allItems[2]);
-		} else {
-			System.out.println("Bummer! No luck!");
-		}	
-	}
 }
